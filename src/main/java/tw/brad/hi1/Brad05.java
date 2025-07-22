@@ -28,7 +28,12 @@ public class Brad05 {
 		for (Member mb : members) {
 			System.out.println(mb.getAccount());
 		}
-		
+		//-------------------
+		System.out.println("-----");
+		List<Member> ms = dao.getByKey("克");
+		for (Member mb : ms) {
+			System.out.println(mb.getAccount() + ":" + mb.getName());
+		}
 		
 		
 		

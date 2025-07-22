@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import tw.brad.entity.Member;
 import tw.brad.hi1.HibernateUtil;
@@ -76,7 +77,19 @@ public class MemberDao {
 		return null;
 	}
 	
-	
+	public List<Member> getByKey(String keyword){
+		try(Session session = HibernateUtil.getSessionFactory().openSession()){
+			
+			String hql = "FROM Member m WHERE m.account LIKE :key OR m.name LIKE :key";
+			Query<Member> query = session.createQuery(hql, Member.class);
+			query.setParameter("key", "%" + keyword + "%");
+			
+			return query.list();
+		}catch(Exception e) {
+			System.out.println(e);
+		}		
+		return null;
+	}
 	
 	
 	
