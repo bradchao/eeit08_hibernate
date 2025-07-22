@@ -58,11 +58,30 @@ public class MemberDao {
 		
 	}
 	public Member getById(int id) {
+		try(Session session = HibernateUtil.getSessionFactory().openSession()){
+			return session.get(Member.class, id);
+		}catch(Exception e) {
+			System.out.println(e);
+		}
 		return null;
 	}
 	public List<Member> getAll() {
+		try(Session session = HibernateUtil.getSessionFactory().openSession()){
+			// SQL(db) => HQL(entity)
+			String hql = "FROM Member";
+			return session.createQuery(hql, Member.class).getResultList();
+		}catch(Exception e) {
+			System.out.println(e);
+		}
 		return null;
 	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }
