@@ -8,6 +8,7 @@ import tw.brad.entity.Gift;
 import tw.brad.entity.Member;
 import tw.brad.entity.MemberInfo;
 import tw.brad.entity.Order;
+import tw.brad.entity.Student;
 
 public class HibernateUtil {
 	private static SessionFactory sessionFactory;
@@ -22,6 +23,7 @@ public class HibernateUtil {
 			config.addAnnotatedClass(Gift.class);
 			config.addAnnotatedClass(Cust.class);
 			config.addAnnotatedClass(Order.class);
+			config.addAnnotatedClass(Student.class);
 			
 			sessionFactory = config.buildSessionFactory();
 		}
