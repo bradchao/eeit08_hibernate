@@ -26,6 +26,9 @@ public class Member {
 	@Column(name = "name")
 	private String name;
 	
+	@Column(name = "icon")
+	private byte[] myicon;
+	
 	
 	public Member() {}
 	public Member(long id, String account, String passwd, String name) {
@@ -58,6 +61,15 @@ public class Member {
 		this.name = name;
 	}
 	
+
+	public byte[] getMyicon() {
+		return myicon;
+	}
+	public void setMyicon(byte[] myicon) {
+		this.myicon = myicon;
+	}
+
+
 	//-----------------------
 	@OneToOne(mappedBy = "member", cascade = CascadeType.ALL)
 	private MemberInfo memberinfo;
