@@ -8,7 +8,7 @@ public class Brad05 {
 
 	public static void main(String[] args) {
 		Member member = new Member();
-		member.setAccount("eric2");
+		member.setAccount("eric3");
 		member.setPasswd(BCrypt.hashpw("123456", BCrypt.gensalt()));
 		member.setName("艾瑞克");
 		

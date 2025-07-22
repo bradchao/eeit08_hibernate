@@ -24,12 +24,6 @@ public class Member {
 	@Column(name = "name")
 	private String name;
 	
-	@Column(name = "icon")
-	private byte[] icon;
-	
-	@Column(name = "bike")
-	private byte[] bike;
-	
 	
 	public Member() {}
 	public Member(long id, String account, String passwd, String name) {
@@ -61,19 +55,5 @@ public class Member {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public byte[] getIcon() {
-		return icon;
-	}
-	public void setIcon(byte[] icon) {
-		this.icon = icon;
-	}
-	public byte[] getBike() {
-		return bike;
-	}
-	public void setBike(byte[] bike) {
-		this.bike = bike;
-	}
-	
-	
 	
 }

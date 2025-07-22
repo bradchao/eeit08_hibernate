@@ -1,9 +1,9 @@
 package tw.brad.hi1;
 
-import java.lang.reflect.Member;
-
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+
+import tw.brad.entity.Member;
 
 public class HibernateUtil {
 	private static SessionFactory sessionFactory;
@@ -13,7 +13,7 @@ public class HibernateUtil {
 			Configuration config = new Configuration();
 			config.configure("hibernate.cfg.xml");
 			
-			//config.addAnnotatedClass(Member.class);
+			config.addAnnotatedClass(Member.class);
 			
 			sessionFactory = config.buildSessionFactory();
 		}

@@ -9,7 +9,5 @@
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.format_sql">true</property>
 		
-		<mapping class="tw.brad.entity.Member"/>
-		
 	</session-factory>
 </hibernate-configuration>
