@@ -3,6 +3,7 @@ package tw.brad.hi1;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import tw.brad.entity.Gift;
 import tw.brad.entity.Member;
 
 public class HibernateUtil {
@@ -14,6 +15,7 @@ public class HibernateUtil {
 			config.configure("hibernate.cfg.xml");
 			
 			config.addAnnotatedClass(Member.class);
+			config.addAnnotatedClass(Gift.class);
 			
 			sessionFactory = config.buildSessionFactory();
 		}
