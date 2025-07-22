@@ -1,9 +1,16 @@
 package tw.brad.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 public class Course {
@@ -28,8 +35,19 @@ public class Course {
 	public void setCname(String cname) {
 		this.cname = cname;
 	}
-	
-	
+	//--------------
+	@ManyToMany(
+			mappedBy = "courses", 
+			fetch = FetchType.EAGER
+			)
+	private Set<Student> students = new HashSet<>();
+
+	public Set<Student> getStudents() {
+		return students;
+	}
+	public void setStudents(Set<Student> students) {
+		this.students = students;
+	}	
 	
 	
 
