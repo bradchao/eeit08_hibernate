@@ -21,6 +21,14 @@ public class CourseMenu extends JComboBox<String>{
 		
 	}
 	
+	public Course getSelectedCourse() {
+		if (getSelectedIndex() != -1) {
+			return courses.get(getSelectedIndex());
+		}
+		return null;
+	}
+	
+	
 	private class MyModel extends DefaultComboBoxModel<String> {
 
 		@Override

@@ -58,19 +58,19 @@ public class SCDao {
 		
 	}	
 	
-	public void update(Student student) {
+	public Student update(Student student) {
 		Transaction transaction = null;
 		try(Session session = HibernateUtil.getSessionFactory().openSession()){
 			transaction = session.beginTransaction();
-			
 			session.merge(student);
-			
 			transaction.commit();
+			return getById(student.getId());
 		}catch(Exception e) {
 			System.out.println(e);
 			if (transaction != null) {
 				transaction.rollback();
 			}
+			return null;
 		}
 	}	
 	
